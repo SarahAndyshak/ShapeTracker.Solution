@@ -22,11 +22,12 @@ namespace ShapeTracker
       int length3 = int.Parse(stringNumber3);  
       Triangle tri = new Triangle(length1, length2, length3);
       ConfirmOrEditTriangle(tri);
-    }    static void ConfirmOrEditTriangle(Triangle tri)
+    }    
+    
+    static void ConfirmOrEditTriangle(Triangle tri)
     {
       Console.WriteLine("Please confirm that you entered in your triangle correctly:");
       Console.WriteLine($"Side 1 has a length of {tri.Side1}."); 
-      // updated code below!!
       Console.WriteLine($"Side 2 has a length of {tri.Side2}.");
       Console.WriteLine($"Side 3 has a length of {tri.GetSide3()}.");
       Console.WriteLine("Is that correct? Enter 'yes' to proceed, or 'no' to re-enter the triangle's sides");
@@ -45,7 +46,6 @@ namespace ShapeTracker
         Console.WriteLine("Enter a third number:");
         string stringNumber3 = Console.ReadLine(); 
         tri.Side1 = int.Parse(stringNumber1); 
-        // updated code below!! 
         tri.Side2 = int.Parse(stringNumber2);  
         tri.SetSide3(int.Parse(stringNumber3)); 
         ConfirmOrEditTriangle(tri);
@@ -59,11 +59,19 @@ namespace ShapeTracker
       Console.WriteLine("-----------------------------------------");
       Console.WriteLine("What's next?");
       Console.WriteLine("Would you like to check a new triangle (new)?");
-      Console.WriteLine("Please enter 'new' to check the type of a new triangle. To exit, enter any key.");
+      Console.WriteLine("Please enter 'new' to check the type of a new triangle. Please enter 'all' to see a list of all created triangles. To exit, enter any key.");
+      // could add branching logic for GetAll() in line above -- enter "all" to see all triangles
       string userResponse = Console.ReadLine(); 
       if (userResponse == "new" || userResponse == "New")
       {
         Main();
+      } if (userResponse == "all"|| userResponse == "All") // added for GetAll()
+      {
+        List<Triangle> listAll = Triangle.GetAll();
+        foreach(Triangle item in listAll)
+        {
+          Console.WriteLine(item);
+        }
       }
       else
       {
