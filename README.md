@@ -26,7 +26,7 @@ A project made with guidance from Epicodus, which identifies shapes.
 
 ## Known Bugs
 
-No known bugs at this time.
+* Does not print list of triangles yet.
 
 ## License
 Enjoy the site! If you have questions or suggestions for fixing the code, please contact us!
