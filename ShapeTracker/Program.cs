@@ -65,7 +65,7 @@ namespace ShapeTracker
       if (userResponse == "new" || userResponse == "New")
       {
         Main();
-      } if (userResponse == "all"|| userResponse == "All") // added for GetAll()
+      } else if (userResponse == "all"|| userResponse == "All") // added for GetAll()
       {
         List<Triangle> listAll = Triangle.GetAll();
         foreach(Triangle item in listAll)
